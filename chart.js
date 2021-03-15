@@ -38,8 +38,4 @@ function draw() {
   }
 }
 
-
-  
-
-
 draw();
