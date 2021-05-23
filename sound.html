@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="audioplay">
+    <audio id="audio1" source src="resources/sounds/mixkit-crickets-and-insects-in-the-wild-ambience-39.wav" type= "audio/wav" preload="auto"></audio>
+    <audio id="audio2" source src="resources/sounds/mixkit-fast-rocket-whoosh-1714.wav" type= "audio/wav" preload="auto"></audio>
+    <audio id="audio3" source src="resources/sounds/mixkit-flock-of-wild-geese-20.wav" preload="auto"></audio>
+    <audio id="audio4" source src="resources/sounds/mixkit-retro-game-emergency-alarm-1000.wav" preload="auto"></audio>
+    <audio id="audio5" source src="resources/sounds/mixkit-wild-lion-animal-roar-6.wav" preload="auto"></audio>
+    <p>Click the buttons to play or pause the audio.</p>
+
+
+    <button onclick="playInsect()" type="button">Play/Pause Insect Sound</button>
+    <button onclick="playRocket()" type="button">Play/Pause Rocket Sound</button>
+    <button onclick="playGeese()" type="button">Play/Pause Geese Sound</button>
+    <button onclick="playAlarm()" type="button">Play/Pause Alarm Sound</button>
+    <button onclick="playRoar()" type="button">Play/Pause Roar Sound</button>
+
+    </div>
+
+    <script>
+        var insect = document.getElementById("audio1");
+        var rocket = document.getElementById("audio2");
+        var geese = document.getElementById("audio3");
+        var alarm = document.getElementById("audio4");
+        var roar = document.getElementById("audio5");
+
+    function playInsect() { 
+    if(insect.paused){
+        insect.play();
+    }else{
+        insect.pause();
+    }
+    }
+
+    function playRocket() { 
+    if(rocket.paused){
+        rocket.play();
+    }else{
+        rocket.pause();
+    }
+    }
+
+    function playGeese() { 
+    if(geese.paused){
+        geese.play();
+    }else{
+        geese.pause();
+    }
+    }
+    function playAlarm() { 
+    if(alarm.paused){
+        alarm.play();
+    }else{
+        alarm.pause();
+    }
+    }
+    function playRoar() { 
+    if(roar.paused){
+        roar.play();
+    }else{
+        roar.pause();
+    }
+}
+</script>
+<a href="index.html">Back to main page</a>
+</body>
+</html>

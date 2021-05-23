@@ -1,41 +1,61 @@
-var fruit = [
-    { name: "Apple", quantity: 30, color: "red" },
-    { name: "Orange", quantity: 9, color: "orange" },
-    { name: "Banana", quantity: 18, color: "yellow" },
-    { name: "Kiwi", quantity: 2, color: "green" },
-    { name: "Blueberry", quantity: 9, color: "blue" },
-    { name: "Grapes", quantity: 38, color: "purple" },
-  ];
-  
-var x = 0;
-var barwidth = 100;
-var textcenter = (x+barwidth)/2;
-var barheight = -20; //height in pixels of the bar per unit of quantity.  Negative since I want the bars to go up
-var fontsize = 20;
-var y = 800;
+let myChart = document.getElementById('myChart').getContext('2d');
 
-function draw() {
-  var canvas = document.getElementById("canvas");
-  if (canvas.getContext) {
-    var ctx = canvas.getContext("2d");
-    ctx.font="20px Arial";
-    ctx.fillText("Lab done by Jose Soto", x, y-barheight,1000);
-    ctx.textAlign = "center"; /*Lines 21-23 set the default font and fontsize(which should match var fontsize value), 
-    text with name as requested, and aligns following texts to the center for formatting*/
-    for (var i = 0; i < fruit.length; i++) {
-      var obj = fruit[i];
-  
-      console.log(fruit.color);
-      ctx.fillStyle = obj.color;
-      ctx.fillRect(x, y, barwidth, barheight*obj.quantity); //
-      
-      ctx.fillStyle = "black";
-      ctx.fillText(obj.name,x+textcenter,y+barheight,barwidth);
-      ctx.fillText(obj.quantity,x+textcenter,y+barheight-fontsize,barwidth);
-      
-      x += barwidth; //moves over 100 pixels to the right, returns to start of for loop
-    }        
-  }
+
+var chart = new Chart(myChart, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: ['BROOKLYN TECHNICAL HS', 'STUYVESANT HS', 'BRONX HS OF SCIENCE', 'STATEN ISLAND TECHNICAL HS', 'BENJAMIN N. CARDOZO HS', 'FIORELLO H. LAGUARDIA HS', 'MIDWOOD HS','TOWNSEND HARRIS HS', 'FRANCIS LEWIS HS','FOREST HILLS HS'],
+        datasets: [{
+            label: 'AP Test Takers',
+            backgroundColor: 'red',
+            borderColor: 'white',
+            data: [2117, 1510, 1190,528,676,691,745,613,697,733]
+        },
+        {
+            label: 'Total Exams Taken',
+            backgroundColor: 'blue',
+            borderColor: 'white',
+            data: [3692,2819,2435,905,1145,1236,1223,796,1033,1116]
+        },
+        {
+            label: 'Number of Exams with scores 3 4 or 5',
+            backgroundColor: 'green',
+            borderColor: 'white',
+            data: [2687, 2648, 2189, 809, 796, 790, 758, 625, 583, 526]
+        }
+    ]
+    },
+
+    // Configuration options go here
+    options: {
+        scales:{
+            yAxes:[{
+                ticks:{
+                  min:0,
+                  max:4000
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                    autoSkip: false,
+                    maxTicksLimit: 10
+                }
+            }]  
+    },    
+    title:{
+        display: true,
+        text: '2010 AP College Board School Level Results by Jose Soto',
+        fontSize:35
+    },
+    legend:{
+        display:true,
+        position:'right',
+        labels:{
+          fontColor: '#000'
+        }
+      },    
 }
-
-draw();
+});
